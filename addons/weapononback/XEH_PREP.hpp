@@ -1,0 +1,12 @@
+PREP(add);
+PREP(getIDCContainer);
+PREP(onDrag);
+PREP(onDragWOB);
+PREP(onDrop);
+PREP(onDropWOB);
+PREP(onInventoryOpened);
+PREP(onWeaponChange);
+PREP(remove);
+PREP(renderPFH);
+PREP(swap);
+PREP(updateInventory);
