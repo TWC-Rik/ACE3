@@ -130,13 +130,6 @@ class GVAR(actions) {
         items[] = {"ACE_adenosine"};
         litter[] = {{"ACE_MedicalLitter_adenosine"}};
     };
-    class Atropine: Morphine {
-        displayName = CSTRING(Inject_Atropine);
-        displayNameProgress = CSTRING(Injecting_Atropine);
-        condition = QGVAR(advancedMedication);
-        items[] = {"ACE_atropine"};
-        litter[] = {{"ACE_MedicalLitter_atropine"}};
-    };
     class Epinephrine: Morphine {
         displayName = CSTRING(Inject_Epinephrine);
         displayNameProgress = CSTRING(Injecting_Epinephrine);
@@ -154,7 +147,7 @@ class GVAR(actions) {
         allowedSelections[] = {"LeftArm", "RightArm", "LeftLeg", "RightLeg"};
         allowSelfTreatment = QGVAR(allowSelfIV);
         category = "advanced";
-        medicRequired = 1;
+        medicRequired = QGVAR(medicIV);
         treatmentTime = 12;
         items[] = {"ACE_bloodIV"};
         condition = "";
@@ -287,7 +280,7 @@ class GVAR(actions) {
         category = "advanced";
         items[] = {"ACE_surgicalKit"};
         treatmentLocations = QGVAR(locationSurgicalKit);
-        allowSelfTreatment = 0;
+        allowSelfTreatment = QGVAR(allowSelfStitch);
         medicRequired = QGVAR(medicSurgicalKit);
         treatmentTime = QFUNC(getStitchTime);
         condition = QFUNC(canStitch);
@@ -305,6 +298,7 @@ class GVAR(actions) {
         condition = QUOTE(_patient call EFUNC(medical_status,isInStableCondition));
         items[] = {"ACE_personalAidKit"};
         treatmentLocations = QGVAR(locationPAK);
+        allowSelfTreatment = QGVAR(allowSelfPAK);
         medicRequired = QGVAR(medicPAK);
         treatmentTime = QFUNC(getHealTime);
         callbackSuccess = QFUNC(fullHeal);
